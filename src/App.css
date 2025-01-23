@@ -1,0 +1,16 @@
+#root {
+  
+  margin: 0 0;
+  padding: 0rem;
+  
+}
+
+img {
+  max-width: 1764px;
+  max-height: 1140px;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
