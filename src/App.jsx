@@ -1,24 +1,29 @@
 
 import './App.css'
-import { getImageDimensions, normaliseCoordinates, getFileDimensions } from '../lib/utils/helpers'
-import { useRef } from 'react'
+
+import { useRef, useState } from 'react'
+import { Dropdown } from './components/Dropdown'
 
 function App() {
 
   const imageRef = useRef(null)
+  let imageClickEvent = useRef(null)
+  const [ clickState, setClickState ] = useState(false)
 
-  const handleClick = (e, ref) => {
-
-    const { fileHeight, fileWidth } = getFileDimensions(e) 
-    const elementDimensions = getImageDimensions(ref)
-    const coordinates = normaliseCoordinates(e, elementDimensions, fileHeight, fileWidth)
   
+  const handleImageClick = (e) => {
+    setClickState(true)
+    console.log(e)
+    imageClickEvent.current = e
   }
 
   return (
-    <div className="wally-border">
-      <img ref={imageRef} onClick={(e) => handleClick(e, imageRef)} src="/src/assets/r_wally.jpg" alt="wheres wally" />
-    </div>
+    <>
+      <Dropdown isClicked={clickState} image={imageRef} imageEvent={imageClickEvent}/>
+      <div className="wally-border">
+        <img ref={imageRef} onClick={(e) => handleImageClick(e, imageClickEvent)} src="/src/assets/r_wally.jpg" alt="wheres wally" />
+      </div>
+    </>
   )
 }
 
