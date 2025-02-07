@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { getImageDimensions, normaliseCoordinates, getFileDimensions } from '../../lib/utils/helpers.js'
 import { submitCoordinates } from '../../lib/utils/api_helpers.js'
 
-function Dropdown({ isClicked, image, imageEvent }) {
+function Dropdown({ handleOption, isClicked, image, imageEvent }) {
 
    const [ selectedCharacter, setSelectedCharacter ] = useState('')
 
@@ -14,20 +14,18 @@ function Dropdown({ isClicked, image, imageEvent }) {
       const values = options.map(option => option.value)
 
       setSelectedCharacter(values[0])
-      // some kind of detection for if user clicks away from Dropbox... console.log(e)
       // IMAGE INFO
       const { fileHeight, fileWidth } = getFileDimensions(imageEvent) 
       const elementDimensions = getImageDimensions(image)
       const coordinates = normaliseCoordinates(imageEvent, elementDimensions, fileHeight, fileWidth)
    
       submitCoordinates(values[0], coordinates)  
-      
+      handleOption()
       // function to handle server response
       //    if character found  find way to not be able to resubmit
       //    
    }
 
-   // maybe an else to remove element?
    if (isClicked) {
       const { clientX, clientY } = imageEvent.current
       console.log(clientX, clientY)
@@ -45,7 +43,7 @@ function Dropdown({ isClicked, image, imageEvent }) {
                   onClick={(e) => handleClick(e)}
                   name="characters" 
                   id="character">
-               <option value="1">char1</option>
+               <option value="defaultchar">char1</option>
                <option value="2">char2</option>
                <option value="3">char3</option>
                </select>
