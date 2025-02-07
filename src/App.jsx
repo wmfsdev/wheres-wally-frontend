@@ -19,16 +19,19 @@ function App() {
   let imageClickEvent = useRef(null)
   const [ clickState, setClickState ] = useState(false)
 
-  // some other clickState required, switch to false when user clicks away from Dropbox
-  
   const handleImageClick = (e) => {
-    setClickState(true)
-    imageClickEvent.current = e
+    console.log("being clicked")
+    if (!clickState) {
+      setClickState(true)
+      imageClickEvent.current = e 
+    } else {
+      setClickState(false)
+    }
   }
 
   return (
     <>
-      <Dropdown isClicked={clickState} image={imageRef} imageEvent={imageClickEvent}/>
+      <Dropdown handleOption={() => setClickState(false)} isClicked={clickState} image={imageRef} imageEvent={imageClickEvent}/>
       <div className="wally-border">
         <img ref={imageRef} onClick={(e) => handleImageClick(e)} src="/src/assets/r_wally.jpg" alt="wheres wally" />
       </div>
