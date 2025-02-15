@@ -3,7 +3,7 @@ import { useState } from 'react'
 import { getImageDimensions, normaliseCoordinates, getFileDimensions, gameProgress } from '../../lib/utils/helpers.js'
 import { submitCoordinates } from '../../lib/utils/api_helpers.js'
 
-function Dropdown({ characters, handleOption, isClicked, image, imageEvent }) {
+function Dropdown({ submit, characters, handleOption, isClicked, image, imageEvent }) {
 
    const [ selectedCharacter, setSelectedCharacter ] = useState('')
    const [ selectOptions, setSelectOptions ] = useState([
@@ -22,11 +22,16 @@ function Dropdown({ characters, handleOption, isClicked, image, imageEvent }) {
       const { fileHeight, fileWidth } = getFileDimensions(imageEvent) 
       const elementDimensions = getImageDimensions(image)
       const coordinates = normaliseCoordinates(imageEvent, elementDimensions, fileHeight, fileWidth)
-      const { status } = await submitCoordinates(values[0], coordinates)
-   
-      handleOption() 
+      const response = await submitCoordinates(values[0], coordinates)
+      
+      handleOption() // handles appearance of dropdown menu 
+      await gameProgress(response, setSelectOptions, selectOptions, values[0])
+      
+      if (response.gameRuntime) {
+         console.log("win with time")
+         submit(response.playerId)
+      }
       characters({ name: names[0] })
-      gameProgress(status, setSelectOptions, selectOptions, values[0])
    }
 
    const options = selectOptions.map((option) => 
