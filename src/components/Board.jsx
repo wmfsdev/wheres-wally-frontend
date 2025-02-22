@@ -88,7 +88,7 @@ function Board() {
         { submitState ?
         <>
           <form action="PUT" onSubmit={submitPlayerName}>
-            <input type="text" name="playerId" value={submitState} readOnly={true}/>
+            <input type="hidden" name="playerId" value={submitState} readOnly={true}/>
             <input type="text" name="playerName" />
             <button type="submit">submit</button>
           </form>
