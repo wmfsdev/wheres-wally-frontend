@@ -1,16 +1,102 @@
 #root {
-  
   margin: 0 0;
   padding: 0rem;
-  
 }
 
 img {
   max-width: 1764px;
   max-height: 1140px;
   width: 100%;
-  position: absolute;
   top: 0;
   left: 0;
 }
 
+.board-nav {
+  padding-left: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.nav-wrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-right: 30px;
+}
+
+.character-nav {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 70px;
+  text-align: right;
+}
+
+.character-wrapper {
+  display: flex;
+  gap: 20px;
+}
+
+.character {
+  height: 50px;
+  width: 50px;
+}
+
+nav ol {
+  display: flex;
+  gap: 1em;
+  list-style-type: none;
+  padding-left: 15px;
+}
+
+.clicked {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.found {
+  position: absolute;
+  z-index: 1;
+  background-color: white;
+  padding: 5px
+}
+
+.characters {
+  padding: 10px;
+}
+
+.wally-border {
+  position: static;
+}
+
+.result-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.result-list-item {
+  display: flex;
+}
+
+.result-list-item p {
+  min-width: 200px
+}
+
+.result-list p {
+  text-align: left;
+}
+
+.result-titles {
+  display: flex;
+  list-style-type: none;
+}
+
+.result-titles li {
+  min-width: 200px;
+}
+
+.play-again {
+  padding-left: 40px;
+}
