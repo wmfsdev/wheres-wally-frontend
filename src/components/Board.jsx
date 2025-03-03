@@ -20,7 +20,7 @@ function Board() {
   useEffect(() => {
     async function fetchData() {
       console.log("fetching")
-      await fetch('http://localhost:3000/game/board', {
+      await fetch(`${import.meta.env.VITE_API_URL}/game/board`, {
         credentials: 'include'
       })
     }

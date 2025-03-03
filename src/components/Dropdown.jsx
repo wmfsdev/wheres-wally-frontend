@@ -33,7 +33,6 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
          console.log("win with time")
          submit(response.playerId)
       }
-    //  characters({ name: names[0] })
    }
 
    const options = selectOptions.map((option) => 
