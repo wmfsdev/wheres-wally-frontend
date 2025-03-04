@@ -53,7 +53,7 @@ function Board() {
         image={imageRef} 
         imageEvent={imageClickEvent}/>
       <div className="wally-border">
-        <img ref={imageRef} onClick={(e) => handleImageClick(e)} src={`/src/assets/wally_${id}.jpeg`} alt="wheres wally" />
+        <img ref={imageRef} onClick={(e) => handleImageClick(e)} src={`/wally_${id}.jpeg`} alt="wheres wally" />
       </div>
       <div className='characters'>
       </div>
