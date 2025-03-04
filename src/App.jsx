@@ -9,7 +9,7 @@ function App() {
 
   const { id } = useParams()
   const [ param, setParam ] = useState(id)
-  const [ hidden, setHidden ] = useState(false)
+  const [ hidden, setHidden ] = useState(true)
   const [ boardState, setBoardState ] = useState(false)
   const [ characters, setCharacters ] = useState([])
 
