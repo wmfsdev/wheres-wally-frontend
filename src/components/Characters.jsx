@@ -65,10 +65,10 @@ function Characters({charArray, param, submitState}) {
   const chars = state.map(function(char) { 
     if (char.found) {
       return <div className='character' key={char.index}>
-      <img src={`/src/assets/found_${char.found.toLocaleLowerCase()}.png`} alt="" /></div>
+      <img src={`/found_${char.found.toLocaleLowerCase()}.png`} alt="" /></div>
     } else
     return <div className='character' key={char.index}>
-      <img src={`/src/assets/find_${char.name.toLocaleLowerCase()}.png`} alt="" /></div>
+      <img src={`/find_${char.name.toLocaleLowerCase()}.png`} alt="" /></div>
   })
 
   return (
