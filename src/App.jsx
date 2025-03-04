@@ -3,14 +3,13 @@ import './App.css'
 import { Link, Outlet } from "react-router-dom"
 import { useState } from 'react'
 import Characters from './components/Characters'
-
 import { useParams } from 'react-router-dom'
 
 function App() {
 
   const { id } = useParams()
   const [ param, setParam ] = useState(id)
-  const [ hidden, setHidden ] = useState(true)
+  const [ hidden, setHidden ] = useState(false)
   const [ boardState, setBoardState ] = useState(false)
   const [ characters, setCharacters ] = useState([])
 
@@ -19,17 +18,17 @@ function App() {
   const list = <ol className="board-list">
   <li>
     <Link to='/board/maze'>
-      <img src="/src/assets/wally_maze_thumb.jpeg" alt="" />
+      <img src="/wally_maze_thumb.jpeg" alt="" />
     </Link>
   </li>
   <li>
     <Link to='/board/football'>
-      <img src="/src/assets/wally_football_thumb.jpeg" alt="" />
+      <img src="/wally_football_thumb.jpeg" alt="" />
     </Link>
   </li>
   <li>
     <Link to='/board/fishing'>
-      <img src="/src/assets/wally_fishing_thumb.jpeg" alt="" />
+      <img src="/wally_fishing_thumb.jpeg" alt="" />
     </Link>
   </li>
   
