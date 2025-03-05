@@ -27,7 +27,7 @@ function App() {
     </Link>
   </li>
   <li>
-    <Link to='/board/fishing'>
+    <Link to='/board/rome'>
       <img src="/wally_rome_thumb.jpeg" alt="" />
     </Link>
   </li>
