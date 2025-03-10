@@ -9,9 +9,9 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
 
    const { id } = useParams()
    const [ selectOptions, setSelectOptions ] = useState([
-      { id: 1, value: "wilma", name: "WILMA" },
-      { id: 2, value: "wally", name: "WALLY" },
-      { id: 3, value: "wizard", name: "WIZARD" }
+      { id: 1, value: `wilma_${id}`, name: "WILMA" },
+      { id: 2, value: `wally_${id}`, name: "WALLY" },
+      { id: 3, value: `wizard_${id}`, name: "WIZARD" }
    ])
 
    async function handleClick(e) {
