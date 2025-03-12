@@ -15,6 +15,7 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
    ])
 
    async function handleClick(e) {
+      console.log("handleClick")
       // DROPDOWN INFO
       const options = [...e.target.selectedOptions]
       const values = options.map(option => option.value)
@@ -53,12 +54,13 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
       return (
          <>
          <div style={styles} className='clicked'>
-            <form action="#">
+            <form>
                <label htmlFor="character">Character: </label>
                <select
-                  onClick={(e) => handleClick(e)}
+                  onChange={(e) => handleClick(e)}
                   name="characters" 
                   id="character">
+                  <option value="">SELECT</option>
                   {options}
                </select>
             </form>
