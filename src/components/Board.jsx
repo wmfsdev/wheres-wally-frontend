@@ -21,7 +21,11 @@ function Board() {
     async function fetchData() {
       console.log("fetching")
       await fetch(`${import.meta.env.VITE_API_URL}/game/board`, {
-        credentials: 'include'
+        credentials: 'include',
+        headers: {
+        "Content-Type": "application/json",
+        'Access-Control-Allow-Origin': 'https://wheres-wally-frontend-xi.vercel.app'
+        },
       })
     }
     fetchData()
