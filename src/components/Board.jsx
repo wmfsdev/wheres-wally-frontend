@@ -22,9 +22,6 @@ function Board() {
       console.log("fetching")
       await fetch(`${import.meta.env.VITE_API_URL}/game/board`, {
         credentials: 'include',
-        headers: {
-          'Content-type': 'application/json; charset=UTF-8',
-       },
       })
     }
     fetchData()
