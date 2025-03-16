@@ -16,16 +16,31 @@ function Board() {
   useEffect(() => {
     setBoardState(true)
   },)
-  
+
   useEffect(() => {
     async function fetchData() {
       console.log("fetching")
-      await fetch(`${import.meta.env.VITE_API_URL}/game/board`, {
-      credentials: 'include'
+      await fetch(`${import.meta.env.VITE_API_URL}/game/board/maze`, {
+        method: 'GET',
+        credentials: 'include',
       })
     }
     fetchData()
   }, [param])
+  
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     console.log("fetching")
+  //     await fetch(`${import.meta.env.VITE_API_URL}/game/board`, {
+       
+  //       credentials: 'include',
+        
+  //     })
+
+    
+  //   }
+  //   fetchData()
+  // }, [param])
   
   const imageRef = useRef(null)
   let imageClickEvent = useRef(null)
