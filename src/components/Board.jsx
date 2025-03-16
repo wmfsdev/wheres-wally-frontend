@@ -21,7 +21,7 @@ function Board() {
     async function fetchData() {
       console.log("fetching")
       await fetch(`${import.meta.env.VITE_API_URL}/game/board`, {
-        credentials: 'include',
+      
       })
     }
     fetchData()
