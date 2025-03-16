@@ -6,7 +6,6 @@ export async function gameResultsLoader() {
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
       },
-      credentials: "include"
     })
 
     const data = await response.json()
