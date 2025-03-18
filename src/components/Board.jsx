@@ -20,12 +20,12 @@ function Board() {
   useEffect(() => {
     async function fetchData() {
       console.log("fetching")
-      await fetch(`${import.meta.env.VITE_API_URL}/game/board/maze`, {
+      await fetch(`${import.meta.env.VITE_API_URL}/game/board/${id}`, {
         credentials: 'include',
       })
     }
     fetchData()
-  }, [param])
+  }, [id])
   
   const imageRef = useRef(null)
   let imageClickEvent = useRef(null)
