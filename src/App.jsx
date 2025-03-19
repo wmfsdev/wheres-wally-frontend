@@ -14,24 +14,23 @@ function App() {
   const [ characters, setCharacters ] = useState([])
 
   const [ submitState, setSubmitState ] = useState(null)
-
+  
   const list = <ol className="board-list">
   <li>
-    <Link to='/board/maze'>
+    <Link onClick={() => setSubmitState(false)} to='/board/maze'>
       <img src="/wally_maze_thumb.jpeg" alt="" />
     </Link>
   </li>
   <li>
-    <Link to='/board/football'>
+    <Link onClick={() => setSubmitState(false)} to='/board/football'>
       <img src="/wally_football_thumb.jpeg" alt="" />
     </Link>
   </li>
   <li>
-    <Link to='/board/rome'>
+    <Link onClick={() => setSubmitState(false)} to='/board/rome'>
       <img src="/wally_rome_thumb.jpeg" alt="" />
     </Link>
   </li>
-  
   </ol>
 
   return (
@@ -48,7 +47,7 @@ function App() {
       { boardState ? 
         <div className='character-nav'>
           <h2>FIND THESE CHARACTERS:</h2>
-          <Characters charArray={characters} param={param} submitState={submitState}/>
+          <Characters charArray={characters} param={param} submitState={submitState} setSubmitState={setSubmitState}/>
         </div>
         : null }
     </div>
