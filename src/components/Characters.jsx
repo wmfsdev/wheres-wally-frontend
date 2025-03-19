@@ -11,7 +11,6 @@ function Characters({charArray, param, submitState}) {
   ])
 
   useEffect(() => {
-    // setState back to default
     setState([
       { index: 0, name: 'WALLY'},
       { index: 1, name: 'WILMA'},
@@ -82,7 +81,7 @@ function Characters({charArray, param, submitState}) {
        <form action="PUT" onSubmit={submitPlayerName}>
          <input type="hidden" name="playerId" value={submitState} readOnly={true}/>
          <input type="text" name="playerName" />
-         <button type="submit">submit</button>
+         <button type="submit">SUBMIT</button>
        </form>
      </> : null  }
    </div>
