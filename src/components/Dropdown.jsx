@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { getImageDimensions, normaliseCoordinates, getFileDimensions, gameProgress } from '../../lib/utils/helpers.js'
 import { submitCoordinates } from '../../lib/utils/api_helpers.js'
 import { useParams } from 'react-router'
@@ -8,11 +8,17 @@ import { useParams } from 'react-router'
 function Dropdown({ submit, characters, handleOption, isClicked, image, imageEvent }) {
 
    const { id } = useParams()
-   const [ selectOptions, setSelectOptions ] = useState([
+   const characterOptions = [
       { id: 1, value: `wilma_${id}`, name: "WILMA" },
       { id: 2, value: `wally_${id}`, name: "WALLY" },
       { id: 3, value: `wizard_${id}`, name: "WIZARD" }
-   ])
+   ]
+   const [ selectOptions, setSelectOptions ] = useState(characterOptions)
+
+   useEffect(() => {
+      console.log("changing board")
+      setSelectOptions(characterOptions)
+   }, [id])
 
    async function handleClick(e) {
       console.log("handleClick")
