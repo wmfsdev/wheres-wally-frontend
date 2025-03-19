@@ -63,8 +63,17 @@ nav ol {
   padding: 5px
 }
 
-.characters {
-  padding: 10px;
+.characters form {
+  display: flex;
+  gap:10px;
+}
+
+.characters input {
+  padding-left: 10px;
+}
+
+.characters button {
+  padding: 0.5empx;
 }
 
 .wally-border {
