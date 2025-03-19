@@ -25,6 +25,7 @@ function Board() {
       })
     }
     fetchData()
+    setCharacters([])
   }, [id])
   
   const imageRef = useRef(null)
@@ -42,7 +43,7 @@ function Board() {
 
   return (
     <div id='main'>
-      <Dropdown 
+      <Dropdown
         submit={(state) => setSubmitState(state)}
         characters={(character) => setCharacters([
           ...characters,
