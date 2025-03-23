@@ -77,13 +77,14 @@ function Characters({charArray, param, submitState}) {
     </div>
      <div className='characters'>
      { submitState ?
-     <>
+     <div className="submit-player-form">
        <form action="PUT" onSubmit={submitPlayerName}>
-         <input type="hidden" name="playerId" value={submitState} readOnly={true}/>
-         <input type="text" name="playerName" />
+         <input type="hidden" name="playerId" value={submitState.playerId} readOnly={true} />
+         <input type="text" name="playerName" placeholder="enter a name..."/>
          <button type="submit">SUBMIT</button>
        </form>
-     </> : null  }
+       <p>COMPLETED IN {submitState.gameRuntime} SECONDS!</p>
+     </div> : null  }
    </div>
    </>
   )
