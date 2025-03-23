@@ -32,13 +32,13 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
       const coordinates = normaliseCoordinates(imageEvent, elementDimensions, fileHeight, fileWidth)
 
       const response = await submitCoordinates(values[0], coordinates, id)
-      
+
       handleOption() // handles appearance of dropdown menu 
       await gameProgress(id, response, setSelectOptions, selectOptions, values[0], characters, names[0])
       
       if (response.gameRuntime) {
          console.log("win with time")
-         submit(response.playerId)
+         submit({ gameRuntime: response.gameRuntime, playerId: response.playerId })
       }
    }
 
