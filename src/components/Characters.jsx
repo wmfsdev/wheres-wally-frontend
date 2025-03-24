@@ -7,14 +7,16 @@ function Characters({charArray, param, submitState}) {
   const [ state, setState ] = useState([
     { index: 0, name: 'WALLY'},
     { index: 1, name: 'WILMA'},
-    { index: 2, name: 'WIZARD' }
+    { index: 2, name: 'WIZARD' },
+    { index: 3, name: 'ODLAW' }
   ])
 
   useEffect(() => {
     setState([
       { index: 0, name: 'WALLY'},
       { index: 1, name: 'WILMA'},
-      { index: 2, name: 'WIZARD' }
+      { index: 2, name: 'WIZARD' },
+      { index: 3, name: 'ODLAW' }
     ])
   }, [param])
 
