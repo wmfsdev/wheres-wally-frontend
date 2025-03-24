@@ -91,6 +91,7 @@ nav ol {
 .result-list {
   display: flex;
   flex-direction: column;
+  min-width: 350px;
 }
 
 .result-list-item {
