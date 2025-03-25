@@ -32,9 +32,9 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
       const elementDimensions = getImageDimensions(image)
       const coordinates = normaliseCoordinates(imageEvent, elementDimensions, fileHeight, fileWidth)
 
-      const response = await submitCoordinates(values[0], coordinates, id)
+      handleOption() // handles appearance of dropdown menu
 
-      handleOption() // handles appearance of dropdown menu 
+      const response = await submitCoordinates(values[0], coordinates, id)
       await gameProgress(id, response, setSelectOptions, selectOptions, values[0], characters, names[0])
       
       if (response.gameRuntime) {
