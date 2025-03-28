@@ -45,6 +45,7 @@ function Characters({charArray, param, submitState}) {
     const formData = new FormData(form)
     const playerId = formData.get('playerId')
     const playerName = formData.get('playerName')
+    console.log("THIS ONE", playerId)
  
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/game/player`, {
@@ -52,12 +53,21 @@ function Characters({charArray, param, submitState}) {
           headers: { 'Content-type': 'application/json; charset=UTF-8',
           },
           body: JSON.stringify({
-             playerId: playerId,
-             playerName: playerName,
+            playerId: playerId,
+            playerName: playerName,
           })
       })
-      console.log("NAVIGATE")
-      navigate('/results')
+
+      if (response.status === 200) {
+        console.log("NAVIGATE")
+        navigate('/results')
+      }
+
+      if (response.status === 422) {
+        console.log("validation issue")
+        const errors = await response.json()
+        console.log(errors)
+      } 
     } catch (err) {
       console.log(err)
     }
@@ -82,7 +92,7 @@ function Characters({charArray, param, submitState}) {
      <div className="submit-player-form">
        <form action="PUT" onSubmit={submitPlayerName}>
          <input type="hidden" name="playerId" value={submitState.playerId} readOnly={true} />
-         <input type="text" name="playerName" placeholder="enter a name..."/>
+         <input type="text" name="playerName" placeholder="enter name (max 12 chars)" required minLength={1} maxLength={12}/>
          <button type="submit">SUBMIT</button>
        </form>
        <p>COMPLETED IN {submitState.gameRuntime} SECONDS!</p>
