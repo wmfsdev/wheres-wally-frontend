@@ -45,31 +45,27 @@ function Characters({charArray, param, submitState}) {
     const formData = new FormData(form)
     const playerId = formData.get('playerId')
     const playerName = formData.get('playerName')
-    console.log("THIS ONE", playerId)
  
     try {
       const response = await fetch(`${import.meta.env.VITE_API_URL}/game/player`, {
-          method: 'PUT',
-          headers: { 'Content-type': 'application/json; charset=UTF-8',
-          },
-          body: JSON.stringify({
-            playerId: playerId,
-            playerName: playerName,
-          })
+        method: 'PUT',
+        headers: { 'Content-type': 'application/json; charset=UTF-8',
+        },
+        body: JSON.stringify({
+          playerId: playerId,
+          playerName: playerName,
+        })
       })
 
-      if (response.status === 200) {
-        console.log("NAVIGATE")
-        navigate('/results')
+      if (response.ok) {
+        return navigate('/results')
       }
-
+      // validation
       if (response.status === 422) {
-        console.log("validation issue")
-        const errors = await response.json()
-        console.log(errors)
-      } 
+        await response.json()
+      } else throw response
     } catch (err) {
-      console.log(err)
+      navigate('/error')
     }
   }
 
