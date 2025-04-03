@@ -3,11 +3,13 @@ import { useEffect, useState } from 'react'
 import { getImageDimensions, normaliseCoordinates, getFileDimensions, gameProgress } from '../../lib/utils/helpers.js'
 import { submitCoordinates } from '../../lib/utils/api_helpers.js'
 import { useParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 
 function Dropdown({ submit, characters, handleOption, isClicked, image, imageEvent }) {
 
    const { id } = useParams()
+   const navigate = useNavigate()
    const characterOptions = [
       { id: 1, value: `wilma_${id}`, name: "WILMA" },
       { id: 2, value: `wally_${id}`, name: "WALLY" },
@@ -24,23 +26,27 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
    async function handleClick(e) {
       console.log("handleClick")
       // DROPDOWN INFO
-      const options = [...e.target.selectedOptions]
-      const values = options.map(option => option.value)
-      const names = options.map(option => option.text)
-      // IMAGE INFO
-      const { fileHeight, fileWidth } = getFileDimensions(imageEvent) 
-      const elementDimensions = getImageDimensions(image)
-      const coordinates = normaliseCoordinates(imageEvent, elementDimensions, fileHeight, fileWidth)
+      try {
+         const options = [...e.target.selectedOptions]
+         const values = options.map(option => option.value)
+         const names = options.map(option => option.text)
+         // IMAGE INFO
+         const { fileHeight, fileWidth } = getFileDimensions(imageEvent) 
+         const elementDimensions = getImageDimensions(image)
+         const coordinates = normaliseCoordinates(imageEvent, elementDimensions, fileHeight, fileWidth)
 
-      handleOption() // handles appearance of dropdown menu
+         handleOption() // handles appearance of dropdown menu
 
-      const response = await submitCoordinates(values[0], coordinates, id)
-      await gameProgress(id, response, setSelectOptions, selectOptions, values[0], characters, names[0])
-      
-      if (response.gameRuntime) {
-         console.log("win with time")
-         submit({ gameRuntime: response.gameRuntime, playerId: response.playerId })
-      }
+         const response = await submitCoordinates(values[0], coordinates, id)
+         await gameProgress(id, response, setSelectOptions, selectOptions, values[0], characters, names[0])
+         
+         if (response.gameRuntime) {
+            console.log("win with time")
+            submit({ gameRuntime: response.gameRuntime, playerId: response.playerId })
+         }
+      } catch(err) {
+         navigate('/error')
+      } 
    }
 
    const options = selectOptions.map((option) => 
