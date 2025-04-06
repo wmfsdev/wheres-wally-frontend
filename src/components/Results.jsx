@@ -10,7 +10,10 @@ function Results() {
 
    return (
       <>
-      <h1>LEADER BOARD</h1>
+      <div className="results-titles">
+         <h1>WHERE'S WALLY?</h1>
+         <h1>LEADER BOARD</h1>
+      </div>
       <div className="results-wrapper">
          <div className="result-list-wrapper">
             <ul className="result-list">
