@@ -22,6 +22,16 @@ img {
   padding-bottom: 10px;
 }
 
+.board-nav h1 {
+  margin-left: 0px;
+  margin-bottom: 10px;
+  color: rgb(47, 128, 195);
+}
+
+.board-nav h2 {
+  color: rgb(114, 43, 106);
+}
+
 .nav-wrapper {
   display: flex;
   justify-content: space-between;
@@ -83,6 +93,22 @@ nav ol {
 
 .wally-border {
   position: static;
+}
+
+.results-titles {
+  padding-top: 10px;
+  padding-left: 10px;
+}
+
+.results-titles h1:first-child {
+  margin-left: 10px;
+  color: rgb(47, 128, 195);
+}
+
+.results-titles h1:last-child {
+  font-size: 2.7rem;
+  margin-left: 10px;
+  color: rgb(114, 43, 106);
 }
 
 .result-list-wrapper {
