@@ -12,7 +12,6 @@ function App() {
   const [ hidden, setHidden ] = useState(true)
   const [ boardState, setBoardState ] = useState(false)
   const [ characters, setCharacters ] = useState([])
-
   const [ submitState, setSubmitState ] = useState(null)
   
   const list = <ol className="board-list">
@@ -40,7 +39,8 @@ function App() {
         onMouseEnter={() => setHidden(false)}
         onMouseLeave={() => setHidden(true)}   
         className='board-nav'>
-        <h2><Link to={'/results'}>WHO IS THE FASTEST?</Link></h2>
+        <h1>WHERE'S WALLY</h1>
+        <h2><Link to={'/results'}>WHO FOUND HIM THE FASTEST?</Link></h2>
         <h2>PICK A BOARD</h2>
         { hidden ? null : list } 
       </nav>
