@@ -19,12 +19,10 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
    const [ selectOptions, setSelectOptions ] = useState(characterOptions)
 
    useEffect(() => {
-      console.log("changing board")
       setSelectOptions(characterOptions)
    }, [id])
 
    async function handleClick(e) {
-      console.log("handleClick")
       // DROPDOWN INFO
       try {
          const options = [...e.target.selectedOptions]
@@ -41,7 +39,7 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
          await gameProgress(id, response, setSelectOptions, selectOptions, values[0], characters, names[0])
          
          if (response.gameRuntime) {
-            console.log("win with time")
+            window.scrollTo(0, 0);
             submit({ gameRuntime: response.gameRuntime, playerId: response.playerId })
          }
       } catch(err) {
@@ -56,9 +54,6 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
    if (isClicked) {
       const { pageX, pageY } = imageEvent.current
       const offset = imageEvent.current.target.offsetTop
-      console.log("X: ", pageX)
-      console.log("Y: ", pageY - offset)
-
       const styles = {
          left: pageX,
          top: pageY,
