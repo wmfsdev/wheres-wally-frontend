@@ -1,7 +1,7 @@
 
 import { useEffect, useState } from 'react'
 import { getImageDimensions, normaliseCoordinates, getFileDimensions, gameProgress } from '../../lib/utils/helpers.js'
-import { submitCoordinates } from '../../lib/utils/api_helpers.js'
+import { submitCoordinates, submitPlayerTime } from '../../lib/utils/api_helpers.js'
 import { useParams } from 'react-router'
 import { useNavigate } from 'react-router'
 
@@ -40,7 +40,7 @@ function Dropdown({ submit, characters, handleOption, isClicked, image, imageEve
          
          if (response.gameRuntime) {
             window.scrollTo(0, 0);
-            submit({ gameRuntime: response.gameRuntime, playerId: response.playerId })
+            submitPlayerTime({ gameRuntime: response.gameRuntime, playerId: response.playerId })
          }
       } catch(err) {
          navigate('/error')
