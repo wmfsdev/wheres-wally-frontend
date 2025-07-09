@@ -21,7 +21,7 @@ function Board() {
     async function fetchData() {
       console.log("fetching")
       await fetch(`${import.meta.env.VITE_API_URL}/game/board/${id}`, {
-        credentials: 'include',
+        credentials: 'same-origin',
       })
     }
     fetchData()
@@ -48,7 +48,7 @@ function Board() {
         characters={(character) => setCharacters([
           ...characters,
           character
-        ])} 
+        ])}
         handleOption={() => setClickState(false)} 
         isClicked={clickState} 
         image={imageRef} 
