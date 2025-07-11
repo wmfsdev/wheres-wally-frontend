@@ -39,10 +39,10 @@ function App() {
         onMouseEnter={() => setHidden(false)}
         onMouseLeave={() => setHidden(true)}   
         className='board-nav'>
-        <h1>WHERE'S WALLY</h1>
+        <h1>WHERE'S WALLY?</h1>
         <h2><Link to={'/results'}>WHO FOUND HIM THE FASTEST?</Link></h2>
-        <h2>PICK A BOARD</h2>
-        { hidden ? null : list } 
+        <h2>&#128073; PICK A BOARD TO PLAY &#128072;</h2>
+        { hidden ? null : list }
       </nav>
       { boardState ? 
         <div className='character-nav'>
