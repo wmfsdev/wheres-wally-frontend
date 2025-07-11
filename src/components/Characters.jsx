@@ -21,8 +21,6 @@ function Characters({charArray, param, submitState}) {
   }, [param])
 
   useEffect(() => {
-    console.log("useEffect")
-    console.log(characters)
     if (characters.length > 0) {
       const character = characters[characters.length - 1].name
       
@@ -40,7 +38,6 @@ function Characters({charArray, param, submitState}) {
 
   async function submitPlayerName(e) {
     e.preventDefault()
-    console.log("submitting")
     const form = e.target
     const formData = new FormData(form)
     const playerId = formData.get('playerId')
@@ -62,6 +59,7 @@ function Characters({charArray, param, submitState}) {
       }
       // validation
       if (response.status === 422) {
+        console.log(response)
         await response.json()
       } else throw response
     } catch (err) {
@@ -88,7 +86,7 @@ function Characters({charArray, param, submitState}) {
      <div className="submit-player-form">
        <form action="PUT" onSubmit={submitPlayerName}>
          <input type="hidden" name="playerId" value={submitState.playerId} readOnly={true} />
-         <input type="text" name="playerName" placeholder="enter name (max 12 chars)" required minLength={1} maxLength={12}/>
+         <input type="text" name="playerName" placeholder="enter name (max 12 chars)" required minLength={1} maxLength={12} /> 
          <button type="submit">SUBMIT</button>
        </form>
        <p>COMPLETED IN {submitState.gameRuntime} SECONDS!</p>
