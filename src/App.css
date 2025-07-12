@@ -141,45 +141,74 @@ nav ol {
 
 .results-titles {
   padding-top: 10px;
-  padding-left: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.results-titles h1:first-child {
+.results-titles h1 {
+  margin-left: 10px;
+  font-size: 4rem;
+  color: rgb(196 79 79);
+  font-family: 'Miltonian Tattoo';
+}
+
+.results-titles h2 {
+  font-size: 2.5rem;
+  font-family: 'Roboto Condensed';
   margin-left: 10px;
   color: rgb(47, 128, 195);
 }
 
-.results-titles h1:last-child {
-  font-size: 2.7rem;
-  margin-left: 10px;
-  color: rgb(114, 43, 106);
-}
-
 .result-list-wrapper {
   display: flex;
+  font-family: 'Roboto Condensed';
+  text-align-last: center;
+}
+
+@media (max-width: 1060px) {
+  .result-list-wrapper {
+    flex-direction: column;
+  }
+
+  .result-list-item {
+    align-self: center;
+  }
+
+  .result-list {
+    margin-bottom: 40px;
+  }
 }
 
 .result-list {
   display: flex;
   flex-direction: column;
   min-width: 350px;
+  padding-left: 0px;
 }
 
 .result-list-item {
   display: flex;
+  text-align: left;
+  color: rgb(47, 128, 195);
 }
 
 .result-list-item p {
   min-width: 200px
 }
 
-.result-list p {
-  text-align: left;
+ul a {
+  font-size: 18pxrem;
+  color:rgb(255, 255, 255);
 }
 
-
-.play-again {
-  padding-left: 40px;
+.play-again, .play-again a {
+  margin: 20px;
+  font-size: 32px;
+  justify-self: center;
+  font-family: 'Miltonian Tattoo';
+  color: rgb(196 79 79);
 }
 
 .error-headers {
