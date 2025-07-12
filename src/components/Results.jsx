@@ -12,7 +12,7 @@ function Results() {
       <>
       <div className="results-titles">
          <h1>WHERE'S WALLY?</h1>
-         <h1>LEADER BOARD</h1>
+         <h2>LEADER BOARD</h2>
       </div>
       <div className="results-wrapper">
          <div className="result-list-wrapper">
